@@ -9,11 +9,12 @@ Gem::Specification.new do |spec|
   spec.authors       = ["meodien99"]
   spec.email         = ["seb.madcat@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{ruby Rails-like framework}
+  spec.description   = %q{minizie}
+  spec.homepage      = "http://google.com"
   spec.license       = "MIT"
 
+  spec.add_runtime_dependency "rack"
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
   # delete this section to allow pushing this gem to any host.
   if spec.respond_to?(:metadata)
