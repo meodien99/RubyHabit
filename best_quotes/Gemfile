@@ -1,0 +1,5 @@
+# best_quotes/Gemfile
+#source 'https://rubygems.org'
+source :rubygems
+
+gem 'rubyhabit'
