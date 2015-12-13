@@ -2,6 +2,15 @@
 require_relative 'test_helper'
 
 class TestApp < Rubyhabit::Application
+  def get_controller_and_action(env)
+    [TestController, "index"]
+  end
+end
+
+class TestController < Rubyhabit::Controller
+  def index
+    "Hello!" #Not rendering a view
+  end
 end
 
 class RubyAppTest < Test::Unit::TestCase
@@ -12,7 +21,7 @@ class RubyAppTest < Test::Unit::TestCase
   end
 
   def test_request
-    get "/"
+    get "/example/route"
 
     assert last_response.ok?
     body = last_response.body
