@@ -3,3 +3,7 @@
 source :rubygems
 
 gem 'rubyhabit', :path => "../../rubyhabit"
+
+group :development do
+  gem 'rerun'
+end

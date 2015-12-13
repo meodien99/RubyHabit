@@ -1,6 +1,9 @@
 require "rubyhabit/version"
 require 'rubyhabit/array'
 require 'rubyhabit/routing'
+require 'rubyhabit/util'
+require 'rubyhabit/dependencies'
+require 'rubyhabit/controller'
 
 module Rubyhabit
   class Application
@@ -21,16 +24,6 @@ module Rubyhabit
 
       [200, {'Content-Type'=> 'text/html'},
        [text]]
-    end
-  end
-
-  class Controller
-    def initialize(env)
-      @env = env
-    end
-
-    def env
-      @env
     end
   end
 end
