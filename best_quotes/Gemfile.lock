@@ -1,15 +1,19 @@
+PATH
+  remote: ../../rubyhabit
+  specs:
+    rubyhabit (0.1.0)
+      rack
+
 GEM
   remote: http://rubygems.org/
   specs:
     rack (1.6.4)
-    rubyhabit (0.1.0)
-      rack
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  rubyhabit
+  rubyhabit!
 
 BUNDLED WITH
    1.10.6

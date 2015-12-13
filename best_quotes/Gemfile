@@ -2,4 +2,4 @@
 #source 'https://rubygems.org'
 source :rubygems
 
-gem 'rubyhabit'
+gem 'rubyhabit', :path => "../../rubyhabit"
