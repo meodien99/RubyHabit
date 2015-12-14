@@ -2,6 +2,7 @@
 
 require "erubis"
 require "rubyhabit/file_model"
+require "rack/request"
 
 module Rubyhabit
   class Controller
