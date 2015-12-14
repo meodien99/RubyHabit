@@ -3,6 +3,7 @@
 require "erubis"
 require "rubyhabit/file_model"
 require "rack/request"
+require "uri"
 
 module Rubyhabit
   class Controller
@@ -14,6 +15,17 @@ module Rubyhabit
 
     def env
       @env
+    end
+
+    def request
+      # @request ||= Rack::Request.new(@env)
+      # @request ||= Rack::Utils.parse_query URI(@env['REQUEST_URI']).query
+      @request ||= URI(@env['REQUEST_URI'])
+    end
+
+    def params
+      # key, value = request.query.split("&").map { |t| t.split("=")}
+      Hash[request.query.split("&").map { |t| t.split("=")}]
     end
 
     def render(view_name, locals = {})
