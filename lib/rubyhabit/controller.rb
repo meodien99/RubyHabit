@@ -1,9 +1,12 @@
 # rubyhabit/lib/rubyhabit/controller.rb
 
 require "erubis"
+require "rubyhabit/file_model"
 
 module Rubyhabit
   class Controller
+    include Rubyhabit::Model
+
     def initialize(env)
       @env = env
     end
