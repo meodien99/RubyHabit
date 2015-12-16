@@ -11,6 +11,7 @@ module Rubyhabit
 
     def initialize(env)
       @env = env
+      @routing_params = {} # Add this line!
     end
 
     def env
@@ -25,7 +26,24 @@ module Rubyhabit
 
     def params
       # key, value = request.query.split("&").map { |t| t.split("=")}
-      Hash[request.query.split("&").map { |t| t.split("=")}]
+      #  Hash[request.query.split("&").map { |t| t.split("=")}]
+      request.params.merge @routing_params
+    end
+
+
+    def dispatch(action, routing_params = {})
+      @routing_params = routing_params
+      text = self.send(action)
+      if get_response
+        st, hd, rs = get_response.to_a
+        [st, hd, [rs].flatten]
+      else
+        [200, {'Content-Type' => 'text/html'}, [text].flatten]
+      end
+    end
+
+    def action(act, rp = {})
+
     end
 
     def render(view_name, locals = {})
