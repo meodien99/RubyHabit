@@ -42,8 +42,8 @@ module Rubyhabit
       end
     end
 
-    def action(act, rp = {})
-
+    def self.action(act, rp = {})
+      proc { |e| self.new(e).dispatch(act, rp) }
     end
 
     def render(view_name, locals = {})

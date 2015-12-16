@@ -50,7 +50,7 @@ SQL
 
       def self.find(id)
         row = DB.execute <<SQL
-select #{schema.keys.join ","} from #{table} where id=#{id};
+SELECT #{schema.keys.join ","} FROM #{table} WHERE id=#{id};
 SQL
         data = Hash[schema.keys.zip row[0]]
         self.new data

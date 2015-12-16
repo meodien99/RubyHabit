@@ -10,13 +10,16 @@ module Rubyhabit
     def call(env)
       if(env['PATH_INFO'] == '/favicon.ico')
         return [404, {'Content-Type'=>'text/html'}, []]
-      elsif (env['PATH_INFO'] == '/')
-          return [200, {'Content-Type'=>'text/html'}, ['Hello']]
       end
 
-      klass, act = get_controller_and_action(env)
-      rack_app = klass.action(act)
+      # klass, act = get_controller_and_action(env)
+      # rack_app = klass.action(act)
+      # rack_app.call(env)
+
+      #klass, act = get_controller_and_action(env)
+      rack_app = get_rack_app(env)
       rack_app.call(env)
+
       # text = controller.send(act)
 
       # if controller.get_response
